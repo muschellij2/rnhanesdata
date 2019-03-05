@@ -1,7 +1,6 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-sudo: required
 cache: packages
 warnings_are_errors: true
 
@@ -26,6 +25,6 @@ before_install:
   - export rundir=$PWD;
 
 script:
-  - Rscript -e "devtools::install_github('muschellij2/rnhanesdata', dependencies = TRUE)"
-  - cd vignettes && travis_wait 100 Rscript -e "rmarkdown::render('vignette_prediction.Rmd')"
+  - Rscript -e "devtools::install_github('muschellij2/rnhnanesdata', dependencies = TRUE)"
+  - cd vignettes && Rscript -e "rmarkdown::render('vignette_prediction.Rmd')"
   - cd $rundir
