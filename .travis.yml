@@ -27,5 +27,5 @@ before_install:
 
 script:
   - Rscript -e "devtools::install_github('muschellij2/rnhanesdata', dependencies = TRUE)"
-  - cd vignettes && Rscript -e "rmarkdown::render('vignette_prediction.Rmd')"
+  - cd vignettes && travis_wait 100 Rscript -e "rmarkdown::render('vignette_prediction.Rmd')"
   - cd $rundir
